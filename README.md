@@ -49,13 +49,19 @@ cd PX4-Autopilot
 git submodule update --init --recursive
 ```
 
-Build px4 software for Pixhawk 2.4.8 with CRSF support
+Build px4 software for Pixhawk 2.4.8 with CRSF support.
+
+Check [default.px4board](default.px4board)
+
+```
+CONFIG_DRIVERS_RC_CRSF_RC=y
+```
 
 ```
 make px4_fmu-v3_default
 ```
 
-Then upload your [boards/px4/fmu-v3/default.px4board](default.px4board) to the flight controller via QGroundControl.
+Then upload your [build/px4_fmu-v3_default/px4_fmu-v3_default.px4](px4_fmu-v3_default.px4) to the flight controller via QGroundControl.
 
 or
 
