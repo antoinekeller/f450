@@ -1,8 +1,46 @@
 # f450 drone
 
+<p>
+  <em>F450</em></br>
+  <img src="res/f450_overall.jpg" alt="F450" style="width:100%; max-width:100%;" />
+</p>
+
+<p>
+  <em>F450</em></br>
+  <img src="res/f450_core.jpg" alt="F450" style="width:100%; max-width:100%;" />
+</p>
+
+## Hardware
+
+- [QWinOut F450 frame](https://www.amazon.fr/dp/B08GX5Z4SN?ref_=ppx_hzsearch_conn_dt_b_fed_asin_title_1)
+- Width: 450mm
+- Height: 55mm
+- 1000KV Brushless Motors
+- 10-inches propellers
+- 3S 3300mAh LiPo battery
+- [Pixhawk 2.4.8](https://www.amazon.fr/dp/B08B83JKP7?ref_=ppx_hzsearch_conn_dt_b_fed_asin_title_2) flight controller running PX4
+- [Dampers](https://www.amazon.fr/dp/B0CLXHSYSL?ref=ppx_yo2ov_dt_b_fed_asin_title&th=1) for the FC
+- [M8N module](https://fr.aliexpress.com/item/1005008493509634.html?spm=a2g0o.order_list.order_list_main.35.26fe5e5b9S8z77&gatewayAdapt=glo2fra) with magnetometer (--> I2C)
+- Buzzer
+- [Beta FPV ELRS 2.4GHz receiver](https://betafpv.com/products/elrs-nano-receiver?variant=40838513819782)
+- RadioMaster Zorro with ELRS
+- DJI O4 Pro Air Unit powered by a 2S battery (no telemetry)
+- DJI Goggles N3
+
+## Performances
+
+- PX4 modes : ALTITUDE, POSITION, MISSION, etc
+- Flight duration : 7-8 minutes
+- Frame + electronics weight : 722g
+- Battery weight : 278g
+- DJI Air unit + 2S battery weight : 157g
+- Total weight : 1157g
+- No optical flow stabilization
+
 ## PX4 build
 
 Clone the PX4 Autopilot repo :
+
 ```
 git clone https://github.com/PX4/PX4-Autopilot.git
 cd PX4-Autopilot
@@ -19,7 +57,6 @@ Then upload your `boards/px4/fmu-v3/default.px4board` to the flight controller v
 
 or
 
-
 ```
 ~/PX4-Autopilot$ make px4_fmu-v3_default upload
 [0/1] uploading px4
@@ -31,7 +68,7 @@ Attempting reboot on /dev/serial/by-id/usb-3D_Robotics_PX4_BL_FMU_v2.x_0-if00 wi
 If the board does not respond, unplug and re-plug the USB connector.
 
 Found board id: 9,0 bootloader protocol revision 5 on /dev/serial/by-id/usb-3D_Robotics_PX4_BL_FMU_v2.x_0-if00
-Loaded firmware for board id: 9,0 size: 2026140 bytes (97.37%) 
+Loaded firmware for board id: 9,0 size: 2026140 bytes (97.37%)
 
 Bootloader version: unknown
 Sn: 002f00333533510c37323830
@@ -48,7 +85,7 @@ Rebooting. Elapsed Time 15.223
 ```
 
 If you need to change something in the config, open the NuttX menu :
-```
+
 ```
 make px4_fmu-v3_default menuconfig
 ```
@@ -101,5 +138,4 @@ I didnt change the attitude rates, they were just fine.
 
 ## RC binding
 
-If you have an ELRS RC (like Radiomaster Zorro), binding to the ELRS receiver is seamless.
-
+If you have an ELRS RC (like Radiomaster Zorro), binding to the ELRS receiver is seamless. Use QGC to assign flight modes, arm and kill switches. Calibrate your ESCs and the RC input sticks.
