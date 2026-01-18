@@ -1,5 +1,7 @@
 # f450 drone
 
+[YouTube video](https://www.youtube.com/watch?v=wl-joPCPmnE)
+
 <p>
   <em>F450</em></br>
   <img src="res/f450_overall.jpg" alt="F450" style="width:100%; max-width:100%;" />
@@ -53,7 +55,7 @@ Build px4 software for Pixhawk 2.4.8 with CRSF support
 make px4_fmu-v3_default
 ```
 
-Then upload your `boards/px4/fmu-v3/default.px4board` to the flight controller via QGroundControl.
+Then upload your [boards/px4/fmu-v3/default.px4board](default.px4board) to the flight controller via QGroundControl.
 
 or
 
@@ -92,7 +94,7 @@ make px4_fmu-v3_default menuconfig
 
 ## PX4 params
 
-See f450.params
+See [f450.params](f450.params)
 
 ### ELRS
 
@@ -119,7 +121,7 @@ tune_control play -m MFT150e6e6e5c10e4g6
 
 ## Rates tuning
 
-Default parameters creates a very safe and sloppy, I wanted something more reactive in thrust :
+Default parameters creates a very safe and sloppy control, I wanted something more reactive in thrust :
 
 ```
 MPC_ACC_UP_MAX 6.0
@@ -136,6 +138,19 @@ MPC_Z_V_AUTO_UP 5.0
 
 I didnt change the attitude rates, they were just fine.
 
+Dont forget to calibrate the gyroscope, accelerometer and compass via QGC before flying.
+
 ## RC binding
 
 If you have an ELRS RC (like Radiomaster Zorro), binding to the ELRS receiver is seamless. Use QGC to assign flight modes, arm and kill switches. Calibrate your ESCs and the RC input sticks.
+
+## Vibrations
+
+Despite high vibrations, I find the drone quite stable and easy to pilot.
+
+<p>
+  <em>Flight review logs</em></br>
+  <img src="res/flight_review.png" alt="Flight review" style="width:100%; max-width:100%;" />
+</p>
+
+I just regretted that the Pixhawk 2.4.8 is too big compared to the place I have on the F450 frame, I would have added proper rubbers to reduce the vibration level...
